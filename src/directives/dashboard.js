@@ -22,7 +22,9 @@ angular.module('ui.dashboard')
   .directive('dashboard', ['WidgetModel', 'WidgetDefCollection', '$modal', 'DashboardState', function (WidgetModel, WidgetDefCollection, $modal, DashboardState) {
     return {
       restrict: 'A',
-      templateUrl: 'template/dashboard.html',
+      templateUrl: function(element, attributes) {
+        return attributes.templateUrl ? attributes.templateUrl : 'template/dashboard.html';
+      },
       scope: true,
       controller: function ($scope) {
 
