@@ -652,11 +652,13 @@ angular.module('ui.dashboard')
           dataModelType: Class.dataModelType,
           //AW Need deep copy of options to support widget options editing
           dataModelOptions: Class.dataModelOptions,
-          style: Class.style
+          style: Class.style,
+          classNames: Class.classNames
         };
       overrides = overrides || {};
       angular.extend(this, angular.copy(defaults), overrides);
       this.style = this.style || {};
+      this.classNames = this.classNames || [];
       this.setWidth(this.style.width);
 
       if (Class.templateUrl) {
@@ -763,7 +765,7 @@ angular.module("ui.dashboard").run(["$templateCache", function($templateCache) {
     "    </div>\n" +
     "\n" +
     "    <div ui-sortable=\"sortableOptions\" ng-model=\"widgets\" class=\"dashboard-widget-area\">\n" +
-    "        <div ng-repeat=\"widget in widgets\" ng-style=\"widget.style\" class=\"widget-container\" widget>\n" +
+    "        <div ng-repeat=\"widget in widgets\" ng-style=\"widget.style\" ng-class=\"widget.classNames\" class=\"widget-container\" widget>\n" +
     "            <div class=\"widget panel panel-default\">\n" +
     "                <div class=\"widget-header panel-heading\">\n" +
     "                    <h3 class=\"panel-title\">\n" +
