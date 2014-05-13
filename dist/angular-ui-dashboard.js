@@ -656,7 +656,7 @@ angular.module('ui.dashboard')
         };
       overrides = overrides || {};
       angular.extend(this, angular.copy(defaults), overrides);
-      this.style = this.style || { width: '33%' };
+      this.style = this.style || {};
       this.setWidth(this.style.width);
 
       if (Class.templateUrl) {
@@ -671,7 +671,11 @@ angular.module('ui.dashboard')
 
     WidgetModel.prototype = {
       // sets the width (and widthUnits)
-      setWidth: function (width, units) {
+      setWidth: function (width, units) {        
+        if(!width)  {
+          return false;
+        }
+
         width = width.toString();
         units = units || width.replace(/^[-\.\d]+/, '') || '%';
         this.widthUnits = units;

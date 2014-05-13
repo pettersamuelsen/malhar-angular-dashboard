@@ -1,18 +1,15 @@
 .dashboard-widget-area {
-    margin: 10px 0 30px;
     min-height: 200px;
 }
 
 .widget-container {
     float:left;
     display: inline-block;
-    width: 33%;
 }
 
 .widget {
-    margin: 0 1em 1em 0;
     background-color: white;
-    border: 2px solid #444;
+    border: 1px solid #ddd;
     border-radius: 5px;
     position: relative;
     height: 100%;
@@ -46,6 +43,7 @@
 }
 
 .widget-content {
+    padding: 0.4em;
     overflow: hidden;
 }
 
